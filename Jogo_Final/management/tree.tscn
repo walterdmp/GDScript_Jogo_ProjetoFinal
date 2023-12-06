@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://6e1hd133apy8"]
+
+[ext_resource type="Texture2D" uid="uid://dw6ohcfhsnwq3" path="res://assets/Terrain/Decorations/Tree.png" id="1_3p3c8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfitk"]
+atlas = ExtResource("1_3p3c8")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86fqh"]
+atlas = ExtResource("1_3p3c8")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y41ut"]
+atlas = ExtResource("1_3p3c8")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dy7b"]
+atlas = ExtResource("1_3p3c8")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvm6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfitk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86fqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y41ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dy7b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sarq1"]
+radius = 13.0
+
+[node name="Tree" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qvm6l")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 66)
+shape = SubResource("CircleShape2D_sarq1")
